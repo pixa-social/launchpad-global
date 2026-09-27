@@ -10,12 +10,12 @@ export const Route = createFileRoute("/pricing")({
       { title: "Pricing — Pixasocial Build" },
       {
         name: "description",
-        content: "Plans priced in NGN, KES, INR, BRL and MXN. Start free, upgrade when you scale.",
+        content: "Plans priced in NGN, KES, INR, BRL and MXN. Every plan takes local payments from day one.",
       },
       { property: "og:title", content: "Pricing — Pixasocial Build" },
       {
         property: "og:description",
-        content: "Plans priced in NGN, KES, INR, BRL and MXN. Start free, upgrade when you scale.",
+        content: "Plans priced in NGN, KES, INR, BRL and MXN. Every plan takes local payments from day one.",
       },
     ],
   }),
