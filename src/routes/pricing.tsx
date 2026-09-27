@@ -7,12 +7,12 @@ import { pricing, currencies, type Currency } from "@/lib/catalog";
 export const Route = createFileRoute("/pricing")({
   head: () => ({
     meta: [
-      { title: "Pricing — Soko" },
+      { title: "Pricing — Pixasocial Build" },
       {
         name: "description",
         content: "Plans priced in NGN, KES, INR, BRL and MXN. Start free, upgrade when you scale.",
       },
-      { property: "og:title", content: "Pricing — Soko" },
+      { property: "og:title", content: "Pricing — Pixasocial Build" },
       {
         property: "og:description",
         content: "Plans priced in NGN, KES, INR, BRL and MXN. Start free, upgrade when you scale.",

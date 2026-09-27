@@ -9,13 +9,13 @@ const categories = ["All", "Payments", "Messaging", "Growth", "Logistics"] as co
 export const Route = createFileRoute("/plugins")({
   head: () => ({
     meta: [
-      { title: "Plugins — Soko" },
+      { title: "Plugins — Pixasocial Build" },
       {
         name: "description",
         content:
-          "Connect M-Pesa, UPI, Pix, OXXO, WhatsApp and more through Dodo Payments and the Soko plugin library.",
+          "Connect M-Pesa, UPI, Pix, OXXO, WhatsApp and more through Dodo Payments and the Pixasocial plugin library.",
       },
-      { property: "og:title", content: "Plugins — Soko" },
+      { property: "og:title", content: "Plugins — Pixasocial Build" },
       {
         property: "og:description",
         content: "Local payment rails, messaging and growth plugins for Global South websites.",

@@ -10,6 +10,7 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as AdminRouteImport } from './routes/admin'
 import { Route as BuilderRouteImport } from './routes/builder'
 import { Route as PluginsRouteImport } from './routes/plugins'
 import { Route as PricingRouteImport } from './routes/pricing'
@@ -17,6 +18,11 @@ import { Route as PricingRouteImport } from './routes/pricing'
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AdminRoute = AdminRouteImport.update({
+  id: '/admin',
+  path: '/admin',
   getParentRoute: () => rootRouteImport,
 } as any)
 const BuilderRoute = BuilderRouteImport.update({
@@ -37,12 +43,14 @@ const PricingRoute = PricingRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/admin': typeof AdminRoute
   '/builder': typeof BuilderRoute
   '/plugins': typeof PluginsRoute
   '/pricing': typeof PricingRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/admin': typeof AdminRoute
   '/builder': typeof BuilderRoute
   '/plugins': typeof PluginsRoute
   '/pricing': typeof PricingRoute
@@ -50,20 +58,22 @@ export interface FileRoutesByTo {
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/admin': typeof AdminRoute
   '/builder': typeof BuilderRoute
   '/plugins': typeof PluginsRoute
   '/pricing': typeof PricingRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/builder' | '/plugins' | '/pricing'
+  fullPaths: '/' | '/admin' | '/builder' | '/plugins' | '/pricing'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/builder' | '/plugins' | '/pricing'
-  id: '__root__' | '/' | '/builder' | '/plugins' | '/pricing'
+  to: '/' | '/admin' | '/builder' | '/plugins' | '/pricing'
+  id: '__root__' | '/' | '/admin' | '/builder' | '/plugins' | '/pricing'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AdminRoute: typeof AdminRoute
   BuilderRoute: typeof BuilderRoute
   PluginsRoute: typeof PluginsRoute
   PricingRoute: typeof PricingRoute
@@ -76,6 +86,13 @@ declare module '@tanstack/react-router' {
       path: '/'
       fullPath: '/'
       preLoaderRoute: typeof IndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin': {
+      id: '/admin'
+      path: '/admin'
+      fullPath: '/admin'
+      preLoaderRoute: typeof AdminRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/builder': {
@@ -104,6 +121,7 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AdminRoute: AdminRoute,
   BuilderRoute: BuilderRoute,
   PluginsRoute: PluginsRoute,
   PricingRoute: PricingRoute,

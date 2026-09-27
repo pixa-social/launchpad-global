@@ -5,17 +5,17 @@ import { SiteHeader } from "@/components/site-header";
 type Message = { role: "user" | "soko"; text: string };
 
 export const Route = createFileRoute("/builder")({
-  validateSearch: (search: Record<string, unknown>) => ({
-    prompt: typeof search.prompt === "string" ? search.prompt : "",
+  validateSearch: (search: Record<string, unknown>): { prompt?: string | undefined } => ({
+    prompt: typeof search["prompt"] === "string" ? search["prompt"] : undefined,
   }),
   head: () => ({
     meta: [
-      { title: "Builder — Soko" },
+      { title: "Builder — Pixasocial Build" },
       {
         name: "description",
         content: "Chat, preview and publish your site in one workspace with local payment rails.",
       },
-      { property: "og:title", content: "Builder — Soko" },
+      { property: "og:title", content: "Builder — Pixasocial Build" },
       {
         property: "og:description",
         content: "Chat, preview and publish your site in one workspace with local payment rails.",
@@ -110,7 +110,7 @@ function Builder() {
                   value={draft}
                   onChange={(e) => setDraft(e.target.value)}
                   onKeyDown={(e) => e.key === "Enter" && send()}
-                  placeholder="Ask Soko…"
+                  placeholder="Ask Pixa…"
                   className="flex-1 bg-transparent text-sm outline-none placeholder:text-muted-foreground"
                 />
                 <button
