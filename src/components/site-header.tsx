@@ -8,8 +8,8 @@ export function SiteHeader() {
           <div className="grid size-8 place-items-center rounded-lg bg-primary font-display text-sm font-bold text-primary-foreground">
             S
           </div>
-          <span className="font-display text-lg font-bold tracking-tight">Soko</span>
-          <span className="mt-0.5 font-mono text-[10px] tracking-wider text-muted-foreground">v1.0</span>
+          <span className="font-display text-lg font-bold tracking-tight">Pixasocial <span className="text-primary">Build</span></span>
+          <span className="mt-0.5 font-mono text-[10px] tracking-wider text-muted-foreground">beta</span>
         </Link>
         <nav className="hidden items-center gap-8 text-sm font-medium md:flex">
           <Link

@@ -115,7 +115,7 @@ export const pricing: {
     name: "Stall",
     featured: false,
     amounts: { NGN: "₦0", KES: "KSh 0", INR: "₹0", BRL: "R$0", MXN: "MX$0" },
-    features: ["1 site, 5 pages", "2 plugins", "Soko subdomain"],
+    features: ["1 site, 5 pages", "2 plugins", "pixasocial.ai subdomain"],
   },
   {
     name: "Market",

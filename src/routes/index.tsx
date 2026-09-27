@@ -7,13 +7,13 @@ import { plugins, pricing, currencies, type Currency } from "@/lib/catalog";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Soko — describe your site, open for business today" },
+      { title: "Pixasocial Build — describe your site, open for business today" },
       {
         name: "description",
         content:
           "Build fast, local-first websites for Africa, India and Latin America. M-Pesa, UPI, Pix and OXXO checkout via Dodo Payments.",
       },
-      { property: "og:title", content: "Soko — describe your site, open for business today" },
+      { property: "og:title", content: "Pixasocial Build — describe your site, open for business today" },
       {
         property: "og:description",
         content: "Snap on local payment rails and plugins, then launch on build.pixasocial.ai.",
@@ -50,7 +50,7 @@ function Index() {
             <span className="text-primary">Open for business</span> today.
           </h1>
           <p className="mx-auto mt-5 max-w-[46ch] animate-rise text-pretty text-lg text-muted-foreground">
-            Soko builds fast, local-first websites for the Global South. Snap on payments, plugins,
+            Pixasocial Build creates fast, local-first websites for the Global South. Snap on payments, plugins,
             and go live — no code, no waiting.
           </p>
 
@@ -158,7 +158,7 @@ function Index() {
                 </div>
               </div>
               <div className="mt-4 flex items-center gap-2 rounded-lg border border-border bg-background/60 px-3 py-2">
-                <span className="text-sm text-muted-foreground">Ask Soko…</span>
+                <span className="text-sm text-muted-foreground">Ask Pixa…</span>
                 <span className="ml-auto grid size-6 place-items-center rounded-md bg-primary text-xs text-primary-foreground">
                   ↑
                 </span>
