@@ -3,6 +3,9 @@ import { useState } from "react";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
 import { plugins, pricing, currencies, type Currency } from "@/lib/catalog";
+import tplCafe from "@/assets/tpl-cafe.jpg";
+import tplBoutique from "@/assets/tpl-boutique.jpg";
+import tplFitness from "@/assets/tpl-fitness.jpg";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -256,6 +259,84 @@ function Index() {
               <p className="font-semibold">{p.name}</p>
               <p className="mt-1 text-xs text-muted-foreground">{p.meta}</p>
             </Link>
+          ))}
+        </div>
+      </section>
+
+      {/* HOW IT WORKS */}
+      <section className="mx-auto max-w-7xl px-6 py-16">
+        <p className="mb-2 font-mono text-xs tracking-wider text-primary">HOW IT WORKS</p>
+        <h2 className="text-balance font-display text-3xl font-bold tracking-tight">
+          From one sentence to a paid order
+        </h2>
+        <div className="mt-8 grid grid-cols-1 gap-4 md:grid-cols-3">
+          {[
+            ["01", "Describe", "Type what you sell, in English, Hindi, Swahili, Portuguese or Spanish."],
+            ["02", "Snap on", "Add M-Pesa, UPI, Pix or OXXO checkout through Dodo Payments in one tap."],
+            ["03", "Launch", "Go live on yourname.pixasocial.ai or your own domain in under a minute."],
+          ].map(([n, t, d]) => (
+            <div key={n} className="rounded-2xl border border-border bg-surface p-6 backdrop-blur-md">
+              <p className="font-mono text-sm text-accent">{n}</p>
+              <p className="mt-3 font-display text-xl font-bold">{t}</p>
+              <p className="mt-2 text-sm text-pretty text-muted-foreground">{d}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* TEMPLATES */}
+      <section className="mx-auto max-w-7xl px-6 py-16">
+        <div className="mb-6 flex items-end justify-between">
+          <div>
+            <p className="mb-2 font-mono text-xs tracking-wider text-primary">MADE WITH PIXASOCIAL BUILD</p>
+            <h2 className="text-balance font-display text-3xl font-bold tracking-tight">
+              Built in Lagos, Jaipur and São Paulo
+            </h2>
+          </div>
+        </div>
+        <div className="grid grid-cols-1 gap-5 md:grid-cols-3">
+          {[
+            { img: tplCafe, name: "Lagos Brew", tag: "Café · NGN · M-Pesa" },
+            { img: tplBoutique, name: "Vaidehi", tag: "Boutique · INR · UPI" },
+            { img: tplFitness, name: "Viva Forma", tag: "Fitness · BRL · Pix" },
+          ].map((t) => (
+            <Link
+              key={t.name}
+              to="/builder"
+              className="group overflow-hidden rounded-2xl border border-border bg-surface transition-transform duration-200 hover:-translate-y-1 hover:shadow-lift"
+            >
+              <div className="aspect-[4/3] overflow-hidden border-b border-border">
+                <img
+                  src={t.img}
+                  alt={`${t.name} website built with Pixasocial Build`}
+                  width={1024}
+                  height={768}
+                  loading="lazy"
+                  className="h-full w-full object-cover object-top transition-transform duration-500 group-hover:scale-105"
+                />
+              </div>
+              <div className="flex items-center justify-between p-4">
+                <p className="font-display font-bold">{t.name}</p>
+                <span className="font-mono text-[11px] text-muted-foreground">{t.tag}</span>
+              </div>
+            </Link>
+          ))}
+        </div>
+      </section>
+
+      {/* STATS BAND */}
+      <section className="mx-auto max-w-7xl px-6 py-8">
+        <div className="grid grid-cols-2 gap-6 rounded-2xl bg-foreground p-8 text-background md:grid-cols-4">
+          {[
+            ["42s", "median time to live"],
+            ["30+", "local payment rails"],
+            ["5", "currencies at launch"],
+            ["0", "lines of code needed"],
+          ].map(([v, l]) => (
+            <div key={l}>
+              <p className="font-display text-4xl font-bold text-primary">{v}</p>
+              <p className="mt-1 font-mono text-xs opacity-70">{l}</p>
+            </div>
           ))}
         </div>
       </section>
