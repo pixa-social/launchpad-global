@@ -5,8 +5,8 @@ import { SiteHeader } from "@/components/site-header";
 type Message = { role: "user" | "soko"; text: string };
 
 export const Route = createFileRoute("/builder")({
-  validateSearch: (search: Record<string, unknown>): { prompt?: string } => ({
-    prompt: typeof search.prompt === "string" ? search.prompt : undefined,
+  validateSearch: (search: Record<string, unknown>): { prompt?: string | undefined } => ({
+    prompt: typeof search["prompt"] === "string" ? search["prompt"] : undefined,
   }),
   head: () => ({
     meta: [
