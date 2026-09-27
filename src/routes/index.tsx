@@ -26,6 +26,45 @@ export const Route = createFileRoute("/")({
   component: Index,
 });
 
+const railLogos = [
+  "M-Pesa",
+  "UPI",
+  "Pix",
+  "OXXO",
+  "Flutterwave",
+  "Razorpay",
+  "Dodo Payments",
+  "Paystack",
+  "Mercado Pago",
+  "MTN MoMo",
+  "Airtel Money",
+  "PhonePe",
+];
+
+const partnerLogos = [
+  "WhatsApp Business",
+  "Glovo",
+  "Sendy",
+  "DHL Africa",
+  "Zoho",
+  "Meta",
+  "Google Pay",
+  "Safaricom",
+  "Jio",
+  "Nubank",
+];
+
+function LogoChip({ name }: { name: string }) {
+  return (
+    <span className="mx-3 inline-flex shrink-0 items-center gap-2 rounded-full border border-border bg-surface px-5 py-2.5 font-display text-sm font-bold whitespace-nowrap text-foreground/80 shadow-soft backdrop-blur-md">
+      <span className="grid size-6 place-items-center rounded-full bg-primary/10 font-mono text-[10px] font-bold text-primary">
+        {name.charAt(0)}
+      </span>
+      {name}
+    </span>
+  );
+}
+
 function Index() {
   const [prompt, setPrompt] = useState(
     "A boutique coffee shop in Lagos taking M-Pesa and Card payments",
@@ -39,26 +78,79 @@ function Index() {
       {/* HERO */}
       <section className="relative overflow-hidden">
         <div className="pointer-events-none absolute inset-0">
-          <div className="absolute -top-24 -left-24 size-96 rounded-full bg-primary/10 blur-3xl" />
-          <div className="absolute top-10 -right-20 size-80 rounded-full bg-accent/10 blur-3xl" />
+          <div className="absolute -top-32 left-1/2 size-[42rem] -translate-x-1/2 rounded-full bg-primary/15 blur-3xl animate-pulse-glow" />
+          <div className="absolute top-40 -left-32 size-96 rounded-full bg-accent/20 blur-3xl" />
+          <div className="absolute top-64 -right-32 size-96 rounded-full bg-primary/10 blur-3xl" />
+          <div
+            className="absolute inset-0 opacity-[0.35]"
+            style={{
+              backgroundImage:
+                "linear-gradient(to right, var(--border) 1px, transparent 1px), linear-gradient(to bottom, var(--border) 1px, transparent 1px)",
+              backgroundSize: "56px 56px",
+              maskImage: "radial-gradient(ellipse 80% 60% at 50% 0%, black, transparent)",
+            }}
+          />
         </div>
-        <div className="relative mx-auto max-w-4xl px-6 pt-20 pb-16 text-center">
+
+        {/* floating payment cards */}
+        <div className="pointer-events-none absolute inset-0 hidden lg:block">
+          <div
+            className="absolute top-32 left-[6%] animate-float rounded-2xl border border-border bg-surface p-4 shadow-panel backdrop-blur-xl"
+            style={{ "--float-rotate": "-6deg" } as React.CSSProperties}
+          >
+            <p className="font-mono text-[10px] text-muted-foreground">M-PESA</p>
+            <p className="mt-1 font-display text-lg font-bold">KSh 2,400</p>
+            <p className="font-mono text-[10px] text-primary">✓ paid · just now</p>
+          </div>
+          <div
+            className="absolute top-56 right-[5%] animate-float rounded-2xl border border-border bg-surface p-4 shadow-panel backdrop-blur-xl [animation-delay:1.4s]"
+            style={{ "--float-rotate": "5deg" } as React.CSSProperties}
+          >
+            <p className="font-mono text-[10px] text-muted-foreground">UPI</p>
+            <p className="mt-1 font-display text-lg font-bold">₹1,299</p>
+            <p className="font-mono text-[10px] text-primary">✓ paid · 2m ago</p>
+          </div>
+          <div
+            className="absolute bottom-24 left-[10%] animate-float rounded-2xl border border-border bg-surface p-4 shadow-panel backdrop-blur-xl [animation-delay:2.6s]"
+            style={{ "--float-rotate": "4deg" } as React.CSSProperties}
+          >
+            <p className="font-mono text-[10px] text-muted-foreground">PIX</p>
+            <p className="mt-1 font-display text-lg font-bold">R$89,00</p>
+            <p className="font-mono text-[10px] text-primary">✓ paid · 5m ago</p>
+          </div>
+          <div
+            className="absolute right-[9%] bottom-40 animate-float rounded-2xl border border-border bg-surface p-4 shadow-panel backdrop-blur-xl [animation-delay:0.8s]"
+            style={{ "--float-rotate": "-4deg" } as React.CSSProperties}
+          >
+            <p className="font-mono text-[10px] text-muted-foreground">OXXO</p>
+            <p className="mt-1 font-display text-lg font-bold">MX$350</p>
+            <p className="font-mono text-[10px] text-primary">✓ paid · 8m ago</p>
+          </div>
+        </div>
+
+        <div className="relative mx-auto max-w-4xl px-6 pt-24 pb-16 text-center">
           <div className="inline-flex animate-rise items-center gap-2 rounded-full border border-border bg-surface px-4 py-1.5 text-xs font-medium text-muted-foreground backdrop-blur-md">
-            <span className="size-1.5 rounded-full bg-primary" />
+            <span className="relative flex size-1.5">
+              <span className="absolute inline-flex size-full animate-ping rounded-full bg-primary opacity-75" />
+              <span className="relative inline-flex size-1.5 rounded-full bg-primary" />
+            </span>
             Live in 5 minutes · M-Pesa · UPI · Pix · OXXO
           </div>
-          <h1 className="mt-6 animate-rise text-balance font-display text-5xl leading-[1.05] font-bold tracking-tight md:text-6xl">
+          <h1 className="mt-6 animate-rise text-balance font-display text-5xl leading-[1.02] font-bold tracking-tight md:text-7xl">
             Describe your site.
             <br />
-            <span className="text-primary">Open for business</span> today.
+            <span className="bg-gradient-to-r from-primary via-accent to-primary bg-[length:200%_100%] animate-shimmer bg-clip-text text-transparent">
+              Open for business
+            </span>{" "}
+            today.
           </h1>
-          <p className="mx-auto mt-5 max-w-[46ch] animate-rise text-pretty text-lg text-muted-foreground">
-            Pixasocial Build creates fast, local-first websites for the Global South. Snap on payments, plugins,
-            and go live — no code, no waiting.
+          <p className="mx-auto mt-6 max-w-[46ch] animate-rise text-pretty text-lg text-muted-foreground">
+            Pixasocial Build creates fast, local-first websites for Africa, India and Latin America.
+            Snap on the payment rails your customers already use — no code, no waiting.
           </p>
 
-          <div className="mx-auto mt-8 max-w-2xl animate-rise">
-            <div className="rounded-2xl border border-border bg-surface p-2 shadow-soft backdrop-blur-xl">
+          <div className="mx-auto mt-10 max-w-2xl animate-rise">
+            <div className="rounded-2xl border border-border bg-surface p-2 shadow-panel backdrop-blur-xl">
               <div className="rounded-xl bg-background/60 p-4 text-left">
                 <label htmlFor="prompt" className="sr-only">
                   Describe your site
@@ -90,10 +182,13 @@ function Index() {
                   <Link
                     to="/builder"
                     search={{ prompt }}
-                    className="flex items-center gap-2 rounded-lg bg-primary px-4 py-2 text-sm font-semibold text-primary-foreground transition-colors hover:bg-primary/90"
+                    className="relative flex items-center gap-2 overflow-hidden rounded-lg bg-primary px-5 py-2.5 text-sm font-semibold text-primary-foreground transition-colors hover:bg-primary/90"
                   >
-                    Build it
-                    <span aria-hidden="true">→</span>
+                    <span className="absolute inset-0 animate-shimmer bg-gradient-to-r from-transparent via-background/25 to-transparent bg-[length:200%_100%]" />
+                    <span className="relative">Build it</span>
+                    <span aria-hidden="true" className="relative">
+                      →
+                    </span>
                   </Link>
                 </div>
               </div>
@@ -108,14 +203,35 @@ function Index() {
             <span>Powered by Dodo Payments</span>
           </div>
         </div>
+
+        {/* LOGO MARQUEES */}
+        <div className="relative border-y border-border bg-surface/50 py-6 backdrop-blur-md">
+          <p className="mb-4 text-center font-mono text-[11px] tracking-widest text-muted-foreground">
+            WORKS WITH THE RAILS YOUR CUSTOMERS TRUST
+          </p>
+          <div className="overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_10%,black_90%,transparent)]">
+            <div className="flex w-max animate-marquee">
+              {[...railLogos, ...railLogos].map((name, i) => (
+                <LogoChip key={`${name}-${i}`} name={name} />
+              ))}
+            </div>
+          </div>
+          <div className="mt-4 overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_10%,black_90%,transparent)]">
+            <div className="flex w-max animate-marquee-reverse">
+              {[...partnerLogos, ...partnerLogos].map((name, i) => (
+                <LogoChip key={`${name}-${i}`} name={name} />
+              ))}
+            </div>
+          </div>
+        </div>
       </section>
 
       {/* BUILDER */}
-      <section className="mx-auto max-w-7xl px-6 py-16">
+      <section className="mx-auto max-w-7xl px-6 py-20">
         <div className="mb-6 flex items-end justify-between">
           <div>
             <p className="mb-2 font-mono text-xs tracking-wider text-primary">(a) BUILDER</p>
-            <h2 className="text-balance font-display text-3xl font-bold tracking-tight">
+            <h2 className="text-balance font-display text-3xl font-bold tracking-tight md:text-4xl">
               The command center
             </h2>
           </div>
@@ -222,10 +338,10 @@ function Index() {
       </section>
 
       {/* PLUGINS */}
-      <section className="mx-auto max-w-7xl px-6 py-16">
+      <section className="mx-auto max-w-7xl px-6 py-20">
         <div className="mb-6">
           <p className="mb-2 font-mono text-xs tracking-wider text-primary">(b) PLUGINS</p>
-          <h2 className="text-balance font-display text-3xl font-bold tracking-tight">
+          <h2 className="text-balance font-display text-3xl font-bold tracking-tight md:text-4xl">
             Snap on the rails you already use
           </h2>
         </div>
@@ -264,9 +380,9 @@ function Index() {
       </section>
 
       {/* HOW IT WORKS */}
-      <section className="mx-auto max-w-7xl px-6 py-16">
+      <section className="mx-auto max-w-7xl px-6 py-20">
         <p className="mb-2 font-mono text-xs tracking-wider text-primary">HOW IT WORKS</p>
-        <h2 className="text-balance font-display text-3xl font-bold tracking-tight">
+        <h2 className="text-balance font-display text-3xl font-bold tracking-tight md:text-4xl">
           From one sentence to a paid order
         </h2>
         <div className="mt-8 grid grid-cols-1 gap-4 md:grid-cols-3">
@@ -275,7 +391,10 @@ function Index() {
             ["02", "Snap on", "Add M-Pesa, UPI, Pix or OXXO checkout through Dodo Payments in one tap."],
             ["03", "Launch", "Go live on yourname.pixasocial.ai or your own domain in under a minute."],
           ].map(([n, t, d]) => (
-            <div key={n} className="rounded-2xl border border-border bg-surface p-6 backdrop-blur-md">
+            <div
+              key={n}
+              className="group rounded-2xl border border-border bg-surface p-6 backdrop-blur-md transition-transform duration-200 hover:-translate-y-1 hover:shadow-lift"
+            >
               <p className="font-mono text-sm text-accent">{n}</p>
               <p className="mt-3 font-display text-xl font-bold">{t}</p>
               <p className="mt-2 text-sm text-pretty text-muted-foreground">{d}</p>
@@ -285,11 +404,13 @@ function Index() {
       </section>
 
       {/* TEMPLATES */}
-      <section className="mx-auto max-w-7xl px-6 py-16">
+      <section className="mx-auto max-w-7xl px-6 py-20">
         <div className="mb-6 flex items-end justify-between">
           <div>
-            <p className="mb-2 font-mono text-xs tracking-wider text-primary">MADE WITH PIXASOCIAL BUILD</p>
-            <h2 className="text-balance font-display text-3xl font-bold tracking-tight">
+            <p className="mb-2 font-mono text-xs tracking-wider text-primary">
+              MADE WITH PIXASOCIAL BUILD
+            </p>
+            <h2 className="text-balance font-display text-3xl font-bold tracking-tight md:text-4xl">
               Built in Lagos, Jaipur and São Paulo
             </h2>
           </div>
@@ -325,28 +446,32 @@ function Index() {
       </section>
 
       {/* STATS BAND */}
-      <section className="mx-auto max-w-7xl px-6 py-8">
-        <div className="grid grid-cols-2 gap-6 rounded-2xl bg-foreground p-8 text-background md:grid-cols-4">
-          {[
-            ["42s", "median time to live"],
-            ["30+", "local payment rails"],
-            ["5", "currencies at launch"],
-            ["0", "lines of code needed"],
-          ].map(([v, l]) => (
-            <div key={l}>
-              <p className="font-display text-4xl font-bold text-primary">{v}</p>
-              <p className="mt-1 font-mono text-xs opacity-70">{l}</p>
-            </div>
-          ))}
+      <section className="mx-auto max-w-7xl px-6 py-10">
+        <div className="relative overflow-hidden rounded-2xl bg-foreground p-8 text-background md:p-12">
+          <div className="pointer-events-none absolute -top-20 -right-20 size-64 rounded-full bg-primary/30 blur-3xl" />
+          <div className="pointer-events-none absolute -bottom-20 -left-20 size-64 rounded-full bg-accent/20 blur-3xl" />
+          <div className="relative grid grid-cols-2 gap-6 md:grid-cols-4">
+            {[
+              ["42s", "median time to live"],
+              ["30+", "local payment rails"],
+              ["5", "currencies at launch"],
+              ["0", "lines of code needed"],
+            ].map(([v, l]) => (
+              <div key={l}>
+                <p className="font-display text-4xl font-bold text-primary md:text-5xl">{v}</p>
+                <p className="mt-1 font-mono text-xs opacity-70">{l}</p>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
 
       {/* PRICING */}
-      <section className="mx-auto max-w-7xl px-6 py-16">
+      <section className="mx-auto max-w-7xl px-6 py-20">
         <div className="mb-6 flex flex-wrap items-end justify-between gap-4">
           <div>
             <p className="mb-2 font-mono text-xs tracking-wider text-primary">(c) PRICING</p>
-            <h2 className="text-balance font-display text-3xl font-bold tracking-tight">
+            <h2 className="text-balance font-display text-3xl font-bold tracking-tight md:text-4xl">
               Priced where you sell
             </h2>
           </div>
@@ -371,8 +496,8 @@ function Index() {
           {pricing.map((tier) => (
             <div
               key={tier.name}
-              className={`relative rounded-2xl bg-surface p-6 backdrop-blur-md ${
-                tier.featured ? "border-2 border-primary" : "border border-border"
+              className={`relative rounded-2xl bg-surface p-6 backdrop-blur-md transition-transform duration-200 hover:-translate-y-1 hover:shadow-lift ${
+                tier.featured ? "border-2 border-primary shadow-panel" : "border border-border"
               }`}
             >
               {tier.featured && (
@@ -391,8 +516,51 @@ function Index() {
                   </li>
                 ))}
               </ul>
+              <Link
+                to="/builder"
+                className={`mt-6 block rounded-lg px-4 py-2 text-center text-sm font-semibold transition-colors ${
+                  tier.featured
+                    ? "bg-primary text-primary-foreground hover:bg-primary/90"
+                    : "border border-border bg-background/50 hover:bg-background"
+                }`}
+              >
+                Start building
+              </Link>
             </div>
           ))}
+        </div>
+        <p className="mt-6 text-center font-mono text-xs text-muted-foreground">
+          Billed through Dodo Payments · settle in local currency · cancel anytime
+        </p>
+      </section>
+
+      {/* FINAL CTA */}
+      <section className="mx-auto max-w-7xl px-6 pb-24">
+        <div className="relative overflow-hidden rounded-3xl border border-border bg-foreground px-6 py-20 text-center text-background">
+          <div className="pointer-events-none absolute inset-0">
+            <div className="absolute -top-24 left-1/4 size-72 rounded-full bg-primary/40 blur-3xl" />
+            <div className="absolute -bottom-24 right-1/4 size-72 rounded-full bg-accent/30 blur-3xl" />
+          </div>
+          <div className="relative">
+            <h2 className="mx-auto max-w-2xl text-balance font-display text-4xl font-bold tracking-tight md:text-5xl">
+              Your customers are already paying with their phones.
+            </h2>
+            <p className="mx-auto mt-4 max-w-[44ch] text-pretty text-background/70">
+              Meet them there. Build your site, take M-Pesa, UPI, Pix and OXXO, and open today.
+            </p>
+            <Link
+              to="/builder"
+              className="mt-8 inline-flex items-center gap-2 rounded-xl bg-primary px-8 py-4 font-display text-lg font-bold text-primary-foreground transition-transform duration-200 hover:scale-105"
+            >
+              Build your site now
+              <span aria-hidden="true">→</span>
+            </Link>
+            <div className="mt-10 flex flex-wrap items-center justify-center gap-x-8 gap-y-3 font-display text-sm font-bold text-background/60">
+              {["M-Pesa", "UPI", "Pix", "OXXO", "Flutterwave", "Razorpay"].map((r) => (
+                <span key={r}>{r}</span>
+              ))}
+            </div>
+          </div>
         </div>
       </section>
 

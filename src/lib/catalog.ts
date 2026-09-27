@@ -114,19 +114,19 @@ export const pricing: {
   {
     name: "Stall",
     featured: false,
-    amounts: { NGN: "₦0", KES: "KSh 0", INR: "₹0", BRL: "R$0", MXN: "MX$0" },
-    features: ["1 site, 5 pages", "2 plugins", "pixasocial.ai subdomain"],
+    amounts: { NGN: "₦9,500", KES: "KSh 1,900", INR: "₹999", BRL: "R$59", MXN: "MX$199" },
+    features: ["1 site, unlimited pages", "5 plugins", "pixasocial.ai subdomain", "M-Pesa, UPI or Pix checkout"],
   },
   {
     name: "Market",
     featured: true,
-    amounts: { NGN: "₦4,500", KES: "KSh 900", INR: "₹499", BRL: "R$29", MXN: "MX$99" },
-    features: ["Unlimited pages", "All local rails", "Custom domain"],
+    amounts: { NGN: "₦24,000", KES: "KSh 4,800", INR: "₹2,499", BRL: "R$149", MXN: "MX$499" },
+    features: ["3 sites", "All 30+ local rails", "Custom domain", "WhatsApp orders", "Priority AI builds"],
   },
   {
     name: "Emporium",
     featured: false,
-    amounts: { NGN: "₦18,000", KES: "KSh 3,600", INR: "₹1,999", BRL: "R$119", MXN: "MX$399" },
-    features: ["Multi-store", "Team seats", "Priority support"],
+    amounts: { NGN: "₦65,000", KES: "KSh 13,000", INR: "₹6,999", BRL: "R$399", MXN: "MX$1,299" },
+    features: ["Multi-store, unlimited sites", "Team seats", "Dedicated success manager", "API access"],
   },
 ];
